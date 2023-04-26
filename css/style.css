@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: "Ubuntu", "Roboto", sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #212121;
@@ -107,6 +107,14 @@ a:hover {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-55%);
+}
+
+.dictionary ul li a {
+  color: #3A405A;
+  cursor: pointer;
+}
+.dictionary .dropdown-toggle::after {
+  display: none;
 }
 
 @media (max-width: 600px) {

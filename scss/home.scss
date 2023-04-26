@@ -30,7 +30,15 @@
         }
     }
 }
-
+.dictionary {
+    ul li a {
+        color:$blue;
+        cursor: pointer;
+    }
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
 
 //====================MEDIA===================//
 @media(max-width:600px) {
