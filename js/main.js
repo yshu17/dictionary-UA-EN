@@ -1,5 +1,5 @@
 let words;
-fetch('/json/csvjson.json')
+fetch('../json/csvjson.json')
   .then(response => response.json())
   .then(data => words = data ) // массив объектов, созданных из файла JSON
   .catch(error => console.error(error));
