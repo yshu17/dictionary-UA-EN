@@ -1,0 +1,44 @@
+//=================MAIN=====================//
+.main {
+    min-height: 70vh;
+}
+.alphabit {
+    .kaypad {
+        color: $white_1;
+        border: none;
+        &:first-child {
+            background: linear-gradient(80deg, #3A405A 0%, #919098 100%);
+
+        }
+        &:last-child {
+            background: linear-gradient(220deg, #3A405A 0%, #919098 100%);
+        }
+        .kaypad-list li { 
+            color: $white_1;
+            position: relative;
+            padding: 5px 13px;
+            border-radius: 40%;
+            background-color: $blue;
+            width: 38px;
+            height: 32px;
+            a {
+                color: $white_1;
+                position: absolute;
+                top:50%;left: 50%;
+                transform: translateX(-50%) translateY(-55%);
+            }
+        }
+    }
+}
+
+
+//====================MEDIA===================//
+@media(max-width:600px) {
+    .kaypad-wrapper {
+        flex-wrap: wrap;
+    }
+    .kaypad {
+        width: 100% !important;
+    }
+}
+

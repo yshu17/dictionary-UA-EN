@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* Файлы расположены в правельной последовательности, для хорошей оптимизации  */
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Ubuntu", "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #212121;
+  min-width: 360px;
+}
+
+img {
+  height: auto;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: #B1B1B1;
+  transition: all 0.2s;
+}
+a:hover {
+  color: #212121;
+  transition: all 0.2s;
+}
+
+@media (max-width: 1123px) {
+  .header .offcanvas-body .logo-link img {
+    vertical-align: baseline !important;
+  }
+}
+.header {
+  background: linear-gradient(90deg, #3A405A 0%, #919098 100%);
+}
+.header .logo-link {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  background: linear-gradient(220deg, #3A405A 0%, #919098 100%);
+}
+
+@media (max-width: 768px) {
+  .footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 30px;
+  }
+  .footer .row {
+    gap: 10px 10px !important;
+  }
+}
+.main {
+  min-height: 70vh;
+}
+
+.alphabit .kaypad {
+  color: #FFFFFF;
+  border: none;
+}
+.alphabit .kaypad:first-child {
+  background: linear-gradient(80deg, #3A405A 0%, #919098 100%);
+}
+.alphabit .kaypad:last-child {
+  background: linear-gradient(220deg, #3A405A 0%, #919098 100%);
+}
+.alphabit .kaypad .kaypad-list li {
+  color: #FFFFFF;
+  position: relative;
+  padding: 5px 13px;
+  border-radius: 40%;
+  background-color: #3A405A;
+  width: 38px;
+  height: 32px;
+}
+.alphabit .kaypad .kaypad-list li a {
+  color: #FFFFFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-55%);
+}
+
+@media (max-width: 600px) {
+  .kaypad-wrapper {
+    flex-wrap: wrap;
+  }
+  .kaypad {
+    width: 100% !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
