@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: "Roboto", "Merriweather Sans", sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #212121;
@@ -42,7 +42,11 @@ h4 {
 }
 
 h5 {
-  font-size: 14px;
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
 }
 
 a {
