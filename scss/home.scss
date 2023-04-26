@@ -7,25 +7,33 @@
         color: $white_1;
         border: none;
         &:first-child {
-            background: linear-gradient(80deg, #3A405A 0%, #919098 100%);
-
+            background-color: $blue;
         }
         &:last-child {
-            background: linear-gradient(220deg, #3A405A 0%, #919098 100%);
+            background-color: $blue;
         }
         .kaypad-list li { 
-            color: $white_1;
+            cursor: pointer;
+            color: $blue;
             position: relative;
             padding: 5px 13px;
             border-radius: 40%;
-            background-color: $blue;
+            background-color: $white_1;
             width: 38px;
             height: 32px;
+            transition: all .3s;
             a {
-                color: $white_1;
+                color: $black;
                 position: absolute;
                 top:50%;left: 50%;
                 transform: translateX(-50%) translateY(-55%);
+            }
+            &:hover {
+                a{
+                   color:$black; 
+                }
+                background-color: $orange;
+                transition: all .3s;
             }
         }
     }
@@ -34,9 +42,11 @@
     ul li a {
         color:$blue;
         cursor: pointer;
-    }
-    .dropdown-toggle::after {
-        display: none;
+        transition: all .3s;
+        &:hover {
+            text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.3);
+            transition: all .3s;
+        }
     }
 }
 

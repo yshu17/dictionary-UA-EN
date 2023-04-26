@@ -18,6 +18,7 @@ body {
   font-weight: 400;
   color: #212121;
   min-width: 360px;
+  background-color: rgb(200, 200, 200);
 }
 
 img {
@@ -40,14 +41,13 @@ h4 {
   font-size: 18px;
 }
 
+h5 {
+  font-size: 14px;
+}
+
 a {
   text-decoration: none;
-  color: #B1B1B1;
-  transition: all 0.2s;
-}
-a:hover {
-  color: #212121;
-  transition: all 0.2s;
+  color: inherit;
 }
 
 @media (max-width: 1123px) {
@@ -87,34 +87,45 @@ a:hover {
   border: none;
 }
 .alphabit .kaypad:first-child {
-  background: linear-gradient(80deg, #3A405A 0%, #919098 100%);
+  background-color: #3A405A;
 }
 .alphabit .kaypad:last-child {
-  background: linear-gradient(220deg, #3A405A 0%, #919098 100%);
+  background-color: #3A405A;
 }
 .alphabit .kaypad .kaypad-list li {
-  color: #FFFFFF;
+  cursor: pointer;
+  color: #3A405A;
   position: relative;
   padding: 5px 13px;
   border-radius: 40%;
-  background-color: #3A405A;
+  background-color: #FFFFFF;
   width: 38px;
   height: 32px;
+  transition: all 0.3s;
 }
 .alphabit .kaypad .kaypad-list li a {
-  color: #FFFFFF;
+  color: #212121;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-55%);
 }
+.alphabit .kaypad .kaypad-list li:hover {
+  background-color: #F75C03;
+  transition: all 0.3s;
+}
+.alphabit .kaypad .kaypad-list li:hover a {
+  color: #212121;
+}
 
 .dictionary ul li a {
   color: #3A405A;
   cursor: pointer;
+  transition: all 0.3s;
 }
-.dictionary .dropdown-toggle::after {
-  display: none;
+.dictionary ul li a:hover {
+  text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
 }
 
 @media (max-width: 600px) {
