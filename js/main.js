@@ -32,6 +32,7 @@ keycaps.forEach(keycap => {
       if (wordsUa.length > 0) {
         clearWordList();
         wordsUa.forEach(word => addWordToDOM(word));
+        wordList.focus();
       } else {
         showToast();
       }
@@ -42,6 +43,7 @@ keycaps.forEach(keycap => {
       if (wordsEn.length > 0) {
         clearWordList();
         wordsEn.forEach(word => addWordToDOM(word));
+        wordList.focus();
       } else {
         showToast();
       }
