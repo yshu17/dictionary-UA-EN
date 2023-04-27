@@ -1,4 +1,9 @@
 let words;
+const keycaps = document.querySelectorAll('.keycap');
+const wordList = document.querySelector('.dictionary-list');
+const toastBody = document.querySelector('.toast-body');
+const myToast = new bootstrap.Toast(document.querySelector('.toast'));
+
 fetch('../json/csvjson.json')
   .then(response => response.json())
   .then(data => words = data ) // массив объектов, созданных из файла JSON
@@ -17,28 +22,33 @@ function searchWordsByFirstLetterInNameEn(letter) {
     return name_en.charAt(0) === letter.toLowerCase();
   }).map(word => ({ name: word.name_en, translate: word.name_ua, description: word.description_en }));
 }
-
-const keycaps = document.querySelectorAll('.keycap');
-
 keycaps.forEach(keycap => {
   keycap.addEventListener('click',() => {
 
     const keycapValue = keycap.querySelector('a').textContent;
 
     if(/[а-яґєії]/i.test(keycapValue)) {
-      clearWordList();
-      searchWordsByFirstLetterInNameUa(keycapValue).forEach(word => addWordToDOM(word));
+      const wordsUa = searchWordsByFirstLetterInNameUa(keycapValue);
+      if (wordsUa.length > 0) {
+        clearWordList();
+        wordsUa.forEach(word => addWordToDOM(word));
+      } else {
+        showToast();
+      }
     }
 
     if(/^[a-z\s]+$/i.test(keycapValue)) {
-      clearWordList();
-      searchWordsByFirstLetterInNameEn(keycapValue).forEach(word => addWordToDOM(word));
+      const wordsEn = searchWordsByFirstLetterInNameEn(keycapValue);
+      if (wordsEn.length > 0) {
+        clearWordList();
+        wordsEn.forEach(word => addWordToDOM(word));
+      } else {
+        showToast();
+      }
     }
 
   });
 });
-
-const wordList = document.querySelector('.dictionary-list');
 
 function addWordToDOM(word) {
   const randomID = Math.floor(Math.random() * 1000);
@@ -70,4 +80,32 @@ function addWordToDOM(word) {
 
 function clearWordList() {
   wordList.innerHTML = '';
+}
+
+function showTime() {
+  const now = new Date();
+  return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+}
+
+function showToast() {
+  const toastContainer = document.querySelector('#toastContainer');
+  const toastEl = document.createElement('div');
+  toastEl.classList.add('toast', 'text-bg-danger');
+  toastEl.setAttribute('role', 'alert');
+  toastEl.setAttribute('aria-live', 'assertive');
+  toastEl.setAttribute('aria-atomic', 'true');
+  toastEl.innerHTML = `
+    <div class="toast-header">
+      <div class="rounded me-2"><i class="bi bi-robot"></i></div>
+      <strong class="me-auto">Robot assistant of Yuliia's team</strong>
+      <small>${showTime()}</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-bg-dark">
+      <h5>Вибачте але на цю букву немає слов у словнику.</h5>
+    </div>
+  `;
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+  toastContainer.appendChild(toastEl);
 }
