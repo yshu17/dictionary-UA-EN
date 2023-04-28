@@ -122,11 +122,34 @@ a {
   color: #212121;
 }
 
+.dictionary ul li h4 {
+  font-style: italic;
+}
 .dictionary ul li:nth-child(odd) {
-  border-right: 2px solid gray;
+  border-right: 2px;
+}
+.dictionary ul li:nth-child(4n+1) {
+  background-color: rgba(178, 187, 252, 0.1764705882);
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.dictionary ul li:nth-child(4n+4) {
+  background-color: rgba(178, 187, 252, 0.1764705882);
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.dictionary ul li:nth-child(4n+2) {
+  background-color: rgba(229, 227, 255, 0.2156862745);
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.dictionary ul li:nth-child(4n+3) {
+  background-color: rgba(229, 227, 255, 0.2156862745);
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 .dictionary ul a {
-  color: #3A405A;
+  color: #212121;
   cursor: pointer;
   transition: all 0.3s;
 }

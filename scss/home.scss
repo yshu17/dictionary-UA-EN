@@ -49,12 +49,40 @@
 
 .dictionary {
     ul {
+        li h4 {
+            font-style: italic;
+        }
+
         li:nth-child(odd) {
-            border-right: 2px solid gray;
+            border-right: 2px;
+        }
+
+        li:nth-child(4n+1) {
+            background-color: $li-blue;
+            border-top-left-radius: 7px;
+            border-bottom-left-radius: 7px;
+        }
+
+        li:nth-child(4n+4) {
+            background-color: $li-blue;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+        }
+
+        li:nth-child(4n+2) {
+            background-color: $li-gray;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+        }
+
+        li:nth-child(4n+3) {
+            background-color: $li-gray;
+            border-top-left-radius: 7px;
+            border-bottom-left-radius: 7px;
         }
 
         a {
-            color: $blue;
+            color: $black;
             cursor: pointer;
             transition: all .3s;
 

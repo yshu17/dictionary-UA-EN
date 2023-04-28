@@ -4,7 +4,7 @@ const wordList = document.querySelector('.dictionary-list');
 const toastBody = document.querySelector('.toast-body');
 const myToast = new bootstrap.Toast(document.querySelector('.toast'));
 
-fetch('../json/csvjson.json')
+fetch('../json/dictionary-list.json')
   .then(response => response.json())
   .then(data => words = data) // массив объектов, созданных из файла JSON
   .catch(error => console.error(error));
@@ -55,7 +55,7 @@ keycaps.forEach(keycap => {
 function addWordToDOM(word) {
   const randomID = Math.floor(Math.random() * 1000);
   const listItem = document.createElement('li');
-  listItem.classList.add('w-50', 'py-2');
+  listItem.classList.add('w-50', 'p-2');
 
   const dropdownLink = document.createElement('a');
   dropdownLink.classList.add('ms-2');
@@ -67,7 +67,7 @@ function addWordToDOM(word) {
   dropdownLink.innerText = word.name;
 
   const dropdownBlock = document.createElement('div');
-  dropdownBlock.classList.add('collapse', 'ms-2');
+  dropdownBlock.classList.add('collapse', 'px-2');
   dropdownBlock.setAttribute('id', `${randomID}`);
 
   dropdownBlock.innerHTML = `
