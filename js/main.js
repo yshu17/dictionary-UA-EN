@@ -53,7 +53,7 @@ keycaps.forEach(keycap => {
 });
 
 function addWordToDOM(word) {
-  const randomID = Math.floor(Math.random() * 1000);
+  const randomID = idGenerator();
   const listItem = document.createElement('li');
   listItem.classList.add('w-50', 'p-2');
 
@@ -78,6 +78,10 @@ function addWordToDOM(word) {
   listItem.appendChild(dropdownLink);  // Добавляем элемент <a> в элемент <li>
   listItem.appendChild(dropdownBlock);  // Добавляем элемент <div> в элемент <li>
   wordList.appendChild(listItem);  // Добавляем элемент <li> в элемент <ul>
+}
+
+function idGenerator() {
+  return `collapse-${new Date().getTime()}-${Math.floor(Math.random() * 1000)}`;
 }
 
 function clearWordList() {
