@@ -122,12 +122,15 @@ a {
   color: #212121;
 }
 
-.dictionary ul li a {
+.dictionary ul li:nth-child(odd) {
+  border-right: 2px solid gray;
+}
+.dictionary ul a {
   color: #3A405A;
   cursor: pointer;
   transition: all 0.3s;
 }
-.dictionary ul li a:hover {
+.dictionary ul a:hover {
   text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.3);
   transition: all 0.3s;
 }
