@@ -7,7 +7,8 @@ const myToast = new bootstrap.Toast(document.querySelector('.toast'));
 fetch('../json/dictionary-list.json')
   .then(response => response.json())
   .then(data => words = data) // массив объектов, созданных из файла JSON
-  .catch(error => console.error(error));
+  .catch(error => console.error(error)
+);
 
 function searchWordsByFirstLetterInNameUa(letter) {
   return words.filter(word => {
@@ -22,6 +23,7 @@ function searchWordsByFirstLetterInNameEn(letter) {
     return name_en.charAt(0) === letter.toLowerCase();
   }).map(word => ({ name: word.name_en, translate: word.name_ua, description: word.description_en }));
 }
+
 keycaps.forEach(keycap => {
   keycap.addEventListener('click', () => {
 
@@ -103,7 +105,7 @@ function showToast() {
   toastEl.innerHTML = `
     <div class="toast-header">
       <div class="rounded me-2"><i class="bi bi-robot"></i></div>
-      <strong class="me-auto">Robot assistant of Yuliia's team</strong>
+      <strong class="me-auto">Robot assistant</strong>
       <small>${showTime()}</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
