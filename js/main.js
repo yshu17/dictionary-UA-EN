@@ -51,7 +51,7 @@ keycaps.forEach(keycap => {
       }
     }
 
-  });
+  }); 
 });
 
 function addWordToDOM(word) {
@@ -110,7 +110,7 @@ function showToast() {
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body text-bg-dark">
-      <h5>Вибачте але на цю букву немає слов у словнику.</h5>
+      <h5>Вибачте, але на цю букву немає слів у словнику.</h5>
     </div>
   `;
   const toast = new bootstrap.Toast(toastEl);
