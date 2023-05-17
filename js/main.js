@@ -10,14 +10,14 @@ fetch('../json/dictionary-list.json')
   .catch(error => console.error(error)
 );
 
-function searchWordsByFirstLetterInNameUa(letter) {
+function searchWordsUa(letter) {
   return words.filter(word => {
     const name_ua = word.name_ua.toLowerCase();
     return name_ua.charAt(0) === letter.toLowerCase();
   }).map(word => ({ name: word.name_ua, translate: word.name_en, description: word.description_ua }));
 }
 
-function searchWordsByFirstLetterInNameEn(letter) {
+function searchWordsEn(letter) {
   return words.filter(word => {
     const name_en = word.name_en.toLowerCase();
     return name_en.charAt(0) === letter.toLowerCase();
@@ -30,7 +30,7 @@ keycaps.forEach(keycap => {
     const keycapValue = keycap.querySelector('a').textContent;
 
     if (/[а-яґєії]/i.test(keycapValue)) {
-      const wordsUa = searchWordsByFirstLetterInNameUa(keycapValue);
+      const wordsUa = searchWordsUa(keycapValue);
       if (wordsUa.length > 0) {
         clearWordList();
         wordsUa.forEach(word => addWordToDOM(word));
@@ -41,7 +41,7 @@ keycaps.forEach(keycap => {
     }
 
     if (/^[a-z\s]+$/i.test(keycapValue)) {
-      const wordsEn = searchWordsByFirstLetterInNameEn(keycapValue);
+      const wordsEn = searchWordsEn(keycapValue);
       if (wordsEn.length > 0) {
         clearWordList();
         wordsEn.forEach(word => addWordToDOM(word));
@@ -77,9 +77,9 @@ function addWordToDOM(word) {
     <p class="m-0 p-0">${word.description}</p>
   `;
 
-  listItem.appendChild(dropdownLink);  // Добавляем элемент <a> в элемент <li>
-  listItem.appendChild(dropdownBlock);  // Добавляем элемент <div> в элемент <li>
-  wordList.appendChild(listItem);  // Добавляем элемент <li> в элемент <ul>
+  listItem.appendChild(dropdownLink);  
+  listItem.appendChild(dropdownBlock);  
+  wordList.appendChild(listItem); 
 }
 
 function idGenerator() {
@@ -92,7 +92,9 @@ function clearWordList() {
 
 function showTime() {
   const now = new Date();
-  return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+  return `${now.getHours().toString().padStart(2, '0')}:
+          ${now.getMinutes().toString().padStart(2, '0')}:
+          ${now.getSeconds().toString().padStart(2, '0')}`;
 }
 
 function showToast() {
